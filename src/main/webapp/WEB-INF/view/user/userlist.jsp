@@ -24,7 +24,7 @@
            type:"post",
            url:"<%=basePath%>index/userlist",
            success:function (rs) {
-               
+               var a=0;
            }
        })
     });
