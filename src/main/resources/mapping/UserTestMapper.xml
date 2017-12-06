@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="mapper.UserTestMapper" >
-  <resultMap id="BaseResultMap" type="dao.UserTest" >
+<mapper namespace="com.ssm.mapper.UserTestMapper" >
+  <resultMap id="BaseResultMap" type="com.ssm.dao.UserTest" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -24,7 +24,7 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="dao.UserTest" >
+  <insert id="insert" parameterType="com.ssm.dao.UserTest" >
     insert into user (id, email, password, 
       username, role, status, 
       regTime, regIp)
@@ -32,7 +32,7 @@
       #{username,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
       #{regtime,jdbcType=TIMESTAMP}, #{regip,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="dao.UserTest" >
+  <insert id="insertSelective" parameterType="com.ssm.dao.UserTest" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="dao.UserTest" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.dao.UserTest" >
     update user
     <set >
       <if test="email != null" >
@@ -114,7 +114,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="dao.UserTest" >
+  <update id="updateByPrimaryKey" parameterType="com.ssm.dao.UserTest" >
     update user
     set email = #{email,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
@@ -125,4 +125,8 @@
       regIp = #{regip,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectuserlist" resultType="java.util.Map">
+    select * from user
+  </select>
 </mapper>

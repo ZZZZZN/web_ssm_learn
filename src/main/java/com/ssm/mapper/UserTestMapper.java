@@ -1,6 +1,7 @@
-package mapper;
+package com.ssm.mapper;
 
-import dao.UserTest;
+import com.alibaba.fastjson.JSONArray;
+import com.ssm.dao.UserTest;
 
 public interface UserTestMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +15,6 @@ public interface UserTestMapper {
     int updateByPrimaryKeySelective(UserTest record);
 
     int updateByPrimaryKey(UserTest record);
+
+    JSONArray selectuserlist();
 }
