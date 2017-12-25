@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.mapper.LoginMapper" >
+
+  <!--根据用户名查询用户是否存在-->
+  <select id="selectUserByUser_name" parameterType="java.lang.String" resultType="java.util.Map">
+    select id,email,password,username,role from user where username=#{username}
+  </select>
+</mapper>
