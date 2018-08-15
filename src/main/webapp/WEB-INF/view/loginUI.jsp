@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2017/12/6
-  Time: 15:38
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
     String path = request.getContextPath();
@@ -14,7 +8,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <script src="<%=basePath%>static/js/jQuery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>static/js/jQuery-2.1.4.min.js"></script>
     <title>Title</title>
 </head>
 <body>
@@ -26,14 +20,14 @@
         function dosubmit(){
             $.ajax({
                 type:"post",
-                url:"<%=basePath%>/login",
+                url:"<%=basePath%>login",
                 data:{
                     "username":$("#username").val(),
                     "password":$("#password").val()
                 },
                 success:function (rs) {
                     if (rs.state==true){
-                        alert("登录成功")
+                       window.location.href="<%=basePath%>uploaderUI";
                     }
                     else {
                         alert(rs.Msg)

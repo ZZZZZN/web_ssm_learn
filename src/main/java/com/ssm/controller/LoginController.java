@@ -5,6 +5,8 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,7 +25,13 @@ public class LoginController {
     private Loginservice loginservice;
 
 
-    @RequestMapping("/login")
+    @GetMapping("/")
+    public String loginUI(){
+        return "loginUI";
+    }
+
+
+    @PostMapping("/login")
     @ResponseBody
     public Map login(String username, String password,HttpServletRequest request) throws Exception {
         Map result= new HashMap();
